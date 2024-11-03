@@ -72,6 +72,7 @@ int  query(int index, int start, int end, int l, int r){
 
 
 int queryElementGreaterThanX(int index, int start, int end, int l, int r, int x){
+    // Binary Search on Answer - Segment Trees
 	while(l<r){
 		int mid=(l+r)/2;
 		int leftMax = query(index,start,end,l,mid);

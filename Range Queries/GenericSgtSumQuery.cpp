@@ -62,7 +62,9 @@ struct SegTree {
 		return ans;
 	}
 	void make_update(int index, ll val) {  // pass in as many parameters as required
-		Update new_update = Update(val); // may change
+		//Here in this problem onlly index and the value to replaced at this index is passed as parameter
+		Update new_update = Update(val); // may change 
+		// new_update is a Update DataStructure which can store all the values you need to update here only value at partucular index
 		update(0, n - 1, 1, index, new_update);
 	}
 	Node make_query(int left, int right) {
@@ -79,6 +81,7 @@ struct Node1 {
 		val = p1; // may change
 	}
 	void merge(Node1 &l, Node1 &r) { // Merge two child nodes
+		// Here left child + right child
 		val = l.val + r.val;  // may change
 	}
 };
@@ -89,6 +92,8 @@ struct Update1 {
 		val = p1; // may change
 	}
 	void apply(Node1 &a) { // apply update to given node
+	// u.apply(Node) You have to update Node(PassByRef) with elements in Update
+	// Here 'Node a' value is update by val
 		a.val = val; // may change
 	}
 };
@@ -109,7 +114,6 @@ int main(){
             sgt.make_update(pos,val);
         }
         else{
-            // Query
             int l,r;
             cin>>l>>r;
             Node1 ans= sgt.make_query(l,r);
